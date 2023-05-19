@@ -1,0 +1,64 @@
+<div class="card shadow text-center mb-5">
+  <div class="card-header bg-primary text-light">Add Beer</div>
+
+  <div class="card-body">
+    <form [formGroup]="beerForm">
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="isFormFieldInvalid('beerName') ? 'is-invalid' : ''"
+          placeholder="Beer title"
+          formControlName="beerName"
+        />
+        <div class="invalid-feedback">Please specify the beer name</div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="text"
+          class="form-control"
+          [ngClass]="isFormFieldInvalid('upc') ? 'is-invalid' : ''"
+          placeholder="UPC code"
+          formControlName="upc"
+        />
+        <div class="invalid-feedback">Please specify the upc code</div>
+      </div>
+
+      <div class="mb-3">
+        <input
+          type="number"
+          class="form-control"
+          [ngClass]="isFormFieldInvalid('price') ? 'is-invalid' : ''"
+          placeholder="Price"
+          formControlName="price"
+        />
+        <div class="invalid-feedback">Please specify the price</div>
+      </div>
+
+      <div class="mb-3">
+        <select
+          class="form-select mb-3"
+          [ngClass]="isFormFieldInvalid('beerStyle') ? 'is-invalid' : ''"
+          formControlName="beerStyle"
+        >
+          <option [ngValue]="null" disabled>Choose your beer style</option>
+          <option *ngFor="let beerStyle of beerTypes" [ngValue]="beerStyle">
+            {{ beerStyle }}
+          </option>
+        </select>
+        <div class="invalid-feedback">Please specify the beer style</div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn-primary"
+        (click)="onSubmit()"
+        routerLink="/list"
+        [disabled]="!beerForm.valid"
+      >
+        Save
+      </button>
+    </form>
+  </div>
+</div>
