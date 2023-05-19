@@ -8,6 +8,7 @@ import { BeerComponent } from './components/beer/beer.component';
 import { BeerFormComponent } from './components/beer-form/beer-form.component';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   imports: [BrowserModule, FormsModule, ReactiveFormsModule, AppRoutingModule],
@@ -18,6 +19,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     BeerComponent,
     BeerFormComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   providers: [],
   bootstrap: [AppComponent],
